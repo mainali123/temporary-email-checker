@@ -18,8 +18,8 @@ This is a Go-based web application that validates email addresses to check if th
 
 1. Clone the repository:
    ```shell
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/mainali123/temporary-email-checker
+   cd temporary-email-checker
 
 2. Build the application:
    ```shell
