@@ -14,7 +14,17 @@ import (
 var logger *log.Logger
 
 func init() {
-	// Create or open the log file
+	// Check if the log file exists
+	if _, err := os.Stat("main.log"); os.IsNotExist(err) {
+		// Create the log file if it does not exist
+		file, err := os.Create("main.log")
+		if err != nil {
+			log.Fatalf("Failed to create log file: %s", err)
+		}
+		file.Close()
+	}
+
+	// Open the log file
 	logFile, err := os.OpenFile("main.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("Failed to open log file: %s", err)
